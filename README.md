@@ -1,26 +1,26 @@
-# Campus Event Management Web Application
+# Aplikasi Web Manajemen Acara Kampus
 
-This is a simple web application for campus organizations to manage events such as seminars, workshops, and competitions.
+Ini adalah aplikasi web sederhana untuk organisasi kampus untuk mengelola acara seperti seminar, lokakarya, dan kompetisi.
 
-## Features
+## Fitur
 
-- Landing page with a list of upcoming events
-- User registration and login
-- Event registration form for participants
-- Admin dashboard for CRUD operations on events
-- Data storage using MySQL
-- Success notifications after registration
-- Modular folder structure suitable for XAMPP and GitHub
+- Halaman beranda dengan daftar acara yang akan datang
+- Registrasi dan login pengguna
+- Formulir pendaftaran acara untuk peserta
+- Dasbor admin untuk operasi CRUD pada acara
+- Penyimpanan data menggunakan MySQL
+- Pemberitahuan keberhasilan setelah pendaftaran
+- Struktur folder modular yang cocok untuk XAMPP dan GitHub
 
-## Project Structure
+## Struktur Proyek
 
 ```
-project-name/
+nama-proyek/
 ├── index.php
 ├── assets/
-│   ├── css/
-│   ├── js/
-│   └── img/
+│ ├── css/
+│ ├── js/
+│ └── img/
 ├── includes/
 ├── pages/
 ├── admin/
@@ -29,20 +29,20 @@ project-name/
 └── database/
 ```
 
-## Setup Instructions
+Petunjuk Penyiapan ## Petunjuk Penyiapan
 
-1. Import the database schema from `database/init.sql` into your MySQL server.
-2. Configure your database connection in `config/db.php`.
-3. Place the project folder inside your XAMPP `htdocs` directory.
-4. Start Apache and MySQL services in XAMPP.
-5. Access the application via `http://localhost/project-name/index.php`.
+1. Impor skema basis data dari `database/init.sql` ke dalam server MySQL Anda.
+2. Konfigurasikan koneksi basis data Anda di `config/db.php`.
+3. Letakkan folder proyek di dalam direktori `htdocs` XAMPP Anda.
+4. Mulai layanan Apache dan MySQL di XAMPP.
+5. Akses aplikasi melalui `http://localhost/project-name/index.php`.
 
-## Notes
+## Catatan
 
-- This project is intended for educational purposes.
-- Passwords are hashed using PHP's `password_hash` function.
-- Admin authentication is basic and can be extended.
+- Proyek ini ditujukan untuk tujuan pendidikan.
+- Kata sandi di-hash menggunakan fungsi `password_hash` PHP.
+- Otentikasi admin merupakan dasar dan dapat diperluas.
 
-## License
+## Lisensi
 
-MIT License
+Lisensi MIT
