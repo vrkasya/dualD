@@ -6,7 +6,7 @@
             <span class="text-xl font-bold">EventKampus</span>
         </div>
         <div class="hidden md:flex space-x-6">
-            <a href="/index.php" class="hover:text-gray-200 font-medium">Beranda</a>
+            <a href="/dualD/index.php" class="hover:text-gray-200 font-medium">Beranda</a>
             <a href="#events" class="hover:text-gray-200 font-medium">Event</a>
             <a href="#about" class="hover:text-gray-200 font-medium">Tentang</a>
             <a href="#contact" class="hover:text-gray-200 font-medium">Kontak</a>

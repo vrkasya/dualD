@@ -21,7 +21,71 @@
         <!-- Events Section -->
         <section id="events" class="py-16 bg-white">
             <!-- ... (konten events section) ... -->
-            <button onclick="showRegistrationForm('Hackathon Kampus 2023')" class="w-full py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+            <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Event Mendatang</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card 1 -->
+                <div class="event-card bg-white relative animate-fadeIn delay-100">
+                    <div class="event-category bg-indigo-100 text-indigo-800">Seminar</div>
+                    <img src="#" 
+                         alt="Seminar Kewirausahaan" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Seminar Kewirausahaan</h3>
+                        <div class="flex items-center text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>15 Oktober 2023, 09:00 - 12:00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Aula Kampus Utama</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pelajari strategi membangun bisnis dari nol bersama para praktisi sukses.</p>
+                        <button onclick="showRegistrationForm('Seminar Kewirausahaan')" class="w-full py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="event-card bg-white relative animate-fadeIn delay-200">
+                    <div class="event-category bg-green-100 text-green-800">Workshop</div>
+                    <img src="#" 
+                         alt="Workshop Coding" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Workshop Web Development</h3>
+                        <div class="flex items-center text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>20 Oktober 2023, 13:00 - 16:00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Lab Komputer Gedung B</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Pelajari dasar-dasar pengembangan web modern dengan HTML, CSS, dan JavaScript.</p>
+                        <button onclick="showRegistrationForm('Workshop Web Development')" class="w-full py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="event-card bg-white relative animate-fadeIn delay-300">
+                    <div class="event-category bg-yellow-100 text-yellow-800">Kompetisi</div>
+                    <img src="#" 
+                         alt="Hackathon" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Hackathon Kampus 2023</h3>
+                        <div class="flex items-center text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>5 November 2023, 08:00 - 20:00</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Gedung Inovasi</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Kompetisi pengembangan aplikasi selama 12 jam dengan hadiah total Rp 10 juta.</p>
+                        <button onclick="showRegistrationForm('Hackathon Kampus 2023')" class="w-full py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
                             Daftar Sekarang
                         </button>
                     </div>
