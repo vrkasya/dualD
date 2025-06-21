@@ -29,7 +29,7 @@ nama-proyek/
 └── database/
 ```
 
-Petunjuk Penyiapan ## Petunjuk Penyiapan
+Petunjuk Penyiapan **Petunjuk Penyiapan**
 
 1. Impor skema basis data dari `database/init.sql` ke dalam server MySQL Anda.
 2. Konfigurasikan koneksi basis data Anda di `config/db.php`.
