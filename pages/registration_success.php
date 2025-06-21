@@ -13,19 +13,23 @@ include '../includes/header.php';
 include '../includes/navbar.php';
 ?>
 
-<div class="container mx-auto px-4 py-16">
-    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
-        <div class="text-green-500 text-6xl mb-4">
-            <i class="fas fa-check-circle"></i>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container text-center">
+                <div class="text-success mb-4" style="font-size: 5rem;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="fw-bold mb-3">Pendaftaran Berhasil!</h2>
+                <p class="text-muted mb-4 fs-5">
+                    Terima kasih telah mendaftar untuk event <span class="fw-semibold"><?php echo htmlspecialchars($event_name); ?></span>.
+                    Kami akan mengirimkan detail lebih lanjut ke email Anda.
+                </p>
+                <a href="../index.php" class="btn btn-primary-custom px-5 py-3">
+                    Kembali ke Beranda
+                </a>
+            </div>
         </div>
-        <h2 class="text-2xl font-bold mb-4">Pendaftaran Berhasil!</h2>
-        <p class="text-gray-600 mb-6">
-            Terima kasih telah mendaftar untuk event <span class="font-semibold"><?php echo htmlspecialchars($event_name); ?></span>.
-            Kami akan mengirimkan detail lebih lanjut ke email Anda.
-        </p>
-        <a href="../index.php" class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition">
-            Kembali ke Beranda
-        </a>
     </div>
 </div>
 
