@@ -1,32 +1,63 @@
 <?php
+// actions/register_process.php
+
+// Mulai session
 session_start();
-require_once '../config/db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
+// Simpan data ke file (simulasi database)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Ambil data dari form
+    $nama = $_POST['nama'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
-
-    // Check if email already exists
-    $checkSql = "SELECT id FROM users WHERE email = '$email'";
-    $checkResult = $conn->query($checkSql);
-    if ($checkResult && $checkResult->num_rows > 0) {
-        $_SESSION['error'] = "Email already registered.";
-        header("Location: ../pages/register.php");
+    $konfirmasi_password = $_POST['konfirmasi_password'];
+    
+    // Validasi password
+    if ($password !== $konfirmasi_password) {
+        $_SESSION['register_error'] = 'Password dan konfirmasi password tidak cocok';
+        header('Location: ../pages/register.php');
         exit();
     }
-
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashedPassword')";
-    if ($conn->query($sql) === TRUE) {
-        $_SESSION['success'] = "Registration successful. Please login.";
-        header("Location: ../pages/login.php");
-        exit();
-    } else {
-        $_SESSION['error'] = "Error: " . $conn->error;
-        header("Location: ../pages/register.php");
-        exit();
+    
+    // Data user
+    $user = [
+        'nama' => $nama,
+        'email' => $email,
+        'password' => $password, // Dalam aplikasi nyata, password harus di-hash
+        'role' => 'user', // Default role user
+        'registered_at' => date('Y-m-d H:i:s')
+    ];
+    
+    // Simpan ke file (simulasi database)
+    $file = '../database/users.txt';
+    $data = file_get_contents($file);
+    
+    // Cek apakah email sudah terdaftar
+    $users = explode(PHP_EOL, $data);
+    foreach ($users as $user_line) {
+        if (!empty($user_line)) {
+            $existing_user = json_decode($user_line, true);
+            if ($existing_user['email'] === $email) {
+                $_SESSION['register_error'] = 'Email sudah terdaftar';
+                header('Location: ../pages/register.php');
+                exit();
+            }
+        }
     }
+    
+    // Tambahkan user baru
+    $data .= json_encode($user) . PHP_EOL;
+    file_put_contents($file, $data);
+    
+    // Set session sukses
+    $_SESSION['registration_success'] = true;
+    
+    // Redirect ke halaman login
+    header('Location: ../pages/login.php?registered=1');
+    exit();
+} else {
+    // Jika akses langsung ke file action
+    header('Location: ../index.php');
+    exit();
 }
 ?>

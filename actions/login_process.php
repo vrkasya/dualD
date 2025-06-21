@@ -1,29 +1,51 @@
 <?php
+// actions/login_process.php
+
+// Mulai session
 session_start();
-require_once '../config/db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $conn->real_escape_string($_POST['email']);
+// Data user dummy (dalam aplikasi nyata, ini akan diganti dengan database)
+$valid_users = [
+    'admin@eventkampus.com' => [
+        'password' => 'admin123', // Dalam aplikasi nyata, password harus di-hash
+        'nama' => 'Administrator',
+        'role' => 'admin'
+    ],
+    'user@eventkampus.com' => [
+        'password' => 'user123',
+        'nama' => 'User Biasa',
+        'role' => 'user'
+    ]
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
     $password = $_POST['password'];
-
-    $sql = "SELECT id, name, password FROM users WHERE email = '$email'";
-    $result = $conn->query($sql);
-
-    if ($result && $result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_name'] = $user['name'];
-            header("Location: ../index.php");
-            exit();
+    
+    // Validasi login
+    if (isset($valid_users[$email]) && $valid_users[$email]['password'] === $password) {
+        // Set session
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user_email'] = $email;
+        $_SESSION['user_nama'] = $valid_users[$email]['nama'];
+        $_SESSION['user_role'] = $valid_users[$email]['role'];
+        
+        // Redirect ke halaman sesuai role
+        if ($_SESSION['user_role'] === 'admin') {
+            header('Location: ../admin/index.php');
         } else {
-            $_SESSION['error'] = "Invalid password.";
+            header('Location: ../index.php');
         }
+        exit();
     } else {
-        $_SESSION['error'] = "User not found.";
+        // Login gagal
+        $_SESSION['login_error'] = 'Email atau password salah';
+        header('Location: ../pages/login.php');
+        exit();
     }
+} else {
+    // Jika akses langsung ke file action
+    header('Location: ../index.php');
+    exit();
 }
-
-header("Location: ../pages/login.php");
-exit();
 ?>
