@@ -1,3 +1,5 @@
+# ** Untuk Development gunakan branch "development" untuk pull & push **
+
 # Aplikasi Web Manajemen Acara Kampus
 
 Ini adalah aplikasi web sederhana untuk organisasi kampus untuk mengelola acara seperti seminar, lokakarya, dan kompetisi.
