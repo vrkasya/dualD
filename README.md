@@ -1,4 +1,4 @@
-# ** Untuk Development gunakan branch "development" untuk pull & push **
+# Untuk Development gunakan branch "development" untuk pull & push
 
 # Aplikasi Web Manajemen Acara Kampus
 
