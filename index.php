@@ -10,7 +10,7 @@
         <p class="fs-5 mb-5 max-w-2xl mx-auto animate-fadeIn delay-100">
             Temukan dan ikuti berbagai event kampus menarik seperti seminar, workshop, dan kompetisi
         </p>
-        <a href="#events" class="btn btn-primary-custom btn-lg px-5 py-3 fw-bold animate-fadeIn delay-200">
+        <a href="<?php echo url('/pages/events.php'); ?>" class="btn btn-primary-custom btn-lg px-5 py-3 fw-bold animate-fadeIn delay-200">
             Jelajahi Event <i class="fas fa-arrow-right ms-2"></i>
         </a>
     </div>
@@ -24,7 +24,7 @@
         <div class="row g-4">
             <!-- Event Card 1 -->
             <div class="col-md-4">
-                <div class="event-card card border-0 animate-fadeIn delay-100">
+                <div class="event-card card border-0 animate-fadeIn delay-100" onclick="window.location.href='<?php echo url('/pages/event_detail.php?id=1'); ?>'">
                     <span class="event-category category-seminar">Seminar</span>
                     <img src="https://images.unsplash.com/photo-1431540015161-0bf868a8d214?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                          alt="Seminar Kewirausahaan" class="card-img-top" style="height: 200px; object-fit: cover;">
@@ -96,7 +96,7 @@
         </div>
         
         <div class="text-center mt-5">
-            <a href="#" class="btn btn-outline-secondary btn-lg px-4">
+            <a href="<?php echo url('/pages/events.php'); ?>" class="btn btn-outline-secondary btn-lg px-4">
                 Lihat Semua Event <i class="fas fa-arrow-right ms-2"></i>
             </a>
         </div>
