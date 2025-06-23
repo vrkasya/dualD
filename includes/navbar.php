@@ -1,6 +1,11 @@
 <?php require_once __DIR__ . '/../config/path.php'; ?>
 
 <!-- Navigation -->
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="<?php echo url('/'); ?>">
@@ -26,8 +31,14 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <a href="<?php echo url('pages/login.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Masuk</a>
-                <a href="<?php echo url('pages/register.php'); ?>" class="btn btn-primary-custom fw-medium">Daftar</a>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                    <a href="<?php echo url('pages/profile.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Profile</a>
+                    <a href="<?php echo url('pages/dashboard.php'); ?>" class="btn btn-primary-custom fw-medium me-2">Dashboard</a>
+                    <a href="<?php echo url('actions/logout.php'); ?>" class="btn btn-danger fw-medium">Logout</a>
+                <?php else: ?>
+                    <a href="<?php echo url('pages/login.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Masuk</a>
+                    <a href="<?php echo url('pages/register.php'); ?>" class="btn btn-primary-custom fw-medium">Daftar</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>

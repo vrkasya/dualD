@@ -27,7 +27,7 @@
                 <div class="event-card card border-0 animate-fadeIn delay-100" onclick="window.location.href='<?php echo url('/pages/event_detail.php?id=1'); ?>'">
                     <span class="event-category category-seminar">Seminar</span>
                     <img src="https://images.unsplash.com/photo-1431540015161-0bf868a8d214?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Seminar Kewirausahaan" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        alt="Seminar Kewirausahaan" class="card-img-top" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h3 class="card-title fw-bold mb-3">Seminar Kewirausahaan</h3>
                         <div class="d-flex align-items-center text-muted mb-2">

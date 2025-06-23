@@ -45,7 +45,7 @@
                             </li>
                             <li class="d-flex align-items-center">
                                 <i class="fas fa-map-marker-alt me-2 text-light"></i>
-                                <span>Jakarta, Indonesia</span>
+                                <span>Daerah Istimewa Yogyakarta, Indonesia</span>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +54,7 @@
         </div>
         <hr class="my-4 bg-light">
         <div class="text-center text-light">
-            <p>&copy; 2023 EventKampus. Hak Cipta Dilindungi.</p>
+            <p>&copy; 2025 EventKampus. Hak Cipta Dilindungi.</p>
         </div>
     </div>
 </footer>

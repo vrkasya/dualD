@@ -1,0 +1,1 @@
+{"nama":"Dicky Ferdiawan","email":"dicky2000018433@webmail.uad.ac.id","password":"$2y$12$trze34INRKalMq4CAeZ4ae3KtizvBfzsInTnQt3l0ziJK4OxfSNi2","role":"user","registered_at":"2025-06-23 13:51:30"}
