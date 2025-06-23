@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = [
         'nama' => $nama,
         'email' => $email,
-        'password' => $password, // Dalam aplikasi nyata, password harus di-hash
+        'password' => password_hash($password, PASSWORD_DEFAULT), // Hash password for security
         'role' => 'user', // Default role user
         'registered_at' => date('Y-m-d H:i:s')
     ];

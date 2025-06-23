@@ -1,31 +1,47 @@
 <?php
 session_start();
-if (!isset($_SESSION['registration_success'])) {
-    header('Location: ../index.php');
-    exit();
-}
-
-$event_name = $_SESSION['registered_event'];
-unset($_SESSION['registration_success']);
-unset($_SESSION['registered_event']);
-
 include '../includes/header.php';
 include '../includes/navbar.php';
 ?>
 
-<div class="container mx-auto px-4 py-16">
-    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
-        <div class="text-green-500 text-6xl mb-4">
-            <i class="fas fa-check-circle"></i>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container">
+                <h2 class="text-center mb-4 fw-bold">Buat Akun Baru</h2>
+                
+                <?php if (isset($_SESSION['register_error'])): ?>
+                    <div class="alert alert-danger mb-4">
+                        <?php echo $_SESSION['register_error']; unset($_SESSION['register_error']); ?>
+                    </div>
+                <?php endif; ?>
+                
+                <form action="../actions/register_process.php" method="POST">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" class="form-control form-control-lg" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="konfirmasi_password" class="form-label">Konfirmasi Password</label>
+                        <input type="password" id="konfirmasi_password" name="konfirmasi_password" class="form-control form-control-lg" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary-custom w-100 py-2">
+                        Daftar
+                    </button>
+                </form>
+                <div class="mt-4 text-center text-muted">
+                    Sudah punya akun? <a href="login.php" class="text-decoration-none text-primary-custom">Masuk disini</a>
+                </div>
+            </div>
         </div>
-        <h2 class="text-2xl font-bold mb-4">Pendaftaran Berhasil!</h2>
-        <p class="text-gray-600 mb-6">
-            Terima kasih telah mendaftar untuk event <span class="font-semibold"><?php echo htmlspecialchars($event_name); ?></span>.
-            Kami akan mengirimkan detail lebih lanjut ke email Anda.
-        </p>
-        <a href="../index.php" class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition">
-            Kembali ke Beranda
-        </a>
     </div>
 </div>
 

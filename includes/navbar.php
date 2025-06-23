@@ -1,19 +1,45 @@
+<?php require_once __DIR__ . '/../config/path.php'; ?>
+
 <!-- Navigation -->
-<nav class="navbar text-white py-4 px-6">
-    <div class="container mx-auto flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-            <i class="fas fa-calendar-alt text-2xl"></i>
-            <span class="text-xl font-bold">EventKampus</span>
-        </div>
-        <div class="hidden md:flex space-x-6">
-            <a href="/dualD/index.php" class="hover:text-gray-200 font-medium">Beranda</a>
-            <a href="#events" class="hover:text-gray-200 font-medium">Event</a>
-            <a href="#about" class="hover:text-gray-200 font-medium">Tentang</a>
-            <a href="#contact" class="hover:text-gray-200 font-medium">Kontak</a>
-        </div>
-        <div class="flex space-x-4">
-            <a href="pages/login.php" class="px-4 py-2 rounded-lg bg-white text-indigo-600 font-medium hover:bg-gray-100 transition">Masuk</a>
-            <a href="pages/register.php" class="px-4 py-2 rounded-lg bg-indigo-700 text-white font-medium hover:bg-indigo-800 transition">Daftar</a>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="<?php echo url('/'); ?>">
+            <i class="fas fa-calendar-alt me-2"></i>
+            <span class="fw-bold">EventKampus</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="<?php echo url('/'); ?>">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo url('/#events'); ?>">Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo url('/#about'); ?>">Tentang</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo url('/#contact'); ?>">Kontak</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                    <a href="<?php echo url('pages/profile.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Profile</a>
+                    <a href="<?php echo url('pages/dashboard.php'); ?>" class="btn btn-primary-custom fw-medium me-2">Dashboard</a>
+                    <a href="<?php echo url('actions/logout.php'); ?>" class="btn btn-danger fw-medium">Logout</a>
+                <?php else: ?>
+                    <a href="<?php echo url('pages/login.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Masuk</a>
+                    <a href="<?php echo url('pages/register.php'); ?>" class="btn btn-primary-custom fw-medium">Daftar</a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </nav>
