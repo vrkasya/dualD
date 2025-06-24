@@ -1,5 +1,13 @@
 # Untuk Development gunakan branch "development" untuk pull & push
 
+Buat branch kalian sendiri, misal format nama branch-nya adalah nama_pweb. Setiap ingin melakukan pengembangan lakukan:
+- Posisi branch kalian sendiri
+- Pull dari branch development (git pull development)
+- Lakukan pengembangan
+- git add .
+- git commit -m "pesan singkat perubahan kalian"
+- Push ke branch kalian sendiri (git push origin nama_pweb)
+
 # Aplikasi Web Manajemen Acara Kampus
 
 Ini adalah aplikasi web sederhana untuk organisasi kampus untuk mengelola acara seperti seminar, lokakarya, dan kompetisi.
