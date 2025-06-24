@@ -5,10 +5,10 @@
 session_start();
 
 // Cek apakah user adalah admin
-if (!isset($_SESSION['logged_in']) || $_SESSION['user_role'] !== 'admin') {
-    header('Location: ../index.php');
-    exit();
-}
+// if (!isset($_SESSION['logged_in']) || $_SESSION['user_role'] !== 'admin') {
+//     header('Location: ../index.php');
+//     exit();
+// }
 
 // Simpan data event baru
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
