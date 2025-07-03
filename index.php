@@ -1,7 +1,23 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
+<?php
+// Read events from file
+$file = 'database/events.txt';
+$events = [];
 
+if (file_exists($file)) {
+    $data = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($data as $line) {
+        $event = json_decode($line, true);
+        if ($event) {
+            $events[] = $event;
+        }
+    }
+} else {
+    $events = [];
+}
+?>
 
 <!-- Hero Section -->
 <section class="hero text-white">
@@ -22,77 +38,30 @@
         <h2 class="text-center mb-5 display-5 fw-bold">Event Mendatang</h2>
         
         <div class="row g-4">
-            <!-- Event Card 1 -->
+            <?php foreach ($events as $event): ?>
             <div class="col-md-4">
-                <div class="event-card card border-0 animate-fadeIn delay-100" onclick="window.location.href='<?php echo url('/pages/event_detail.php?id=1'); ?>'">
-                    <span class="event-category category-seminar">Seminar</span>
-                    <img src="https://images.unsplash.com/photo-1431540015161-0bf868a8d214?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                        alt="Seminar Kewirausahaan" class="card-img-top" style="height: 200px; object-fit: cover;">
+                <div class="event-card card border-0 animate-fadeIn delay-100" onclick="window.location.href='<?php echo url('/pages/event_detail.php?id=' . urlencode($event['id'])); ?>'">
+                    <span class="event-category category-<?= htmlspecialchars($event['kategori']) ?>"><?= ucfirst(htmlspecialchars($event['kategori'])) ?></span>
+                    <img src="<?= htmlspecialchars($event['gambar_url']) ?>" 
+                        alt="<?= htmlspecialchars($event['judul']) ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
-                        <h3 class="card-title fw-bold mb-3">Seminar Kewirausahaan</h3>
+                        <h3 class="card-title fw-bold mb-3"><?= htmlspecialchars($event['judul']) ?></h3>
                         <div class="d-flex align-items-center text-muted mb-2">
                             <i class="far fa-calendar-alt me-2"></i>
-                            <span>15 Oktober 2023, 09:00 - 12:00</span>
+                            <span><?= htmlspecialchars($event['tanggal']) ?>, <?= htmlspecialchars($event['waktu']) ?></span>
                         </div>
                         <div class="d-flex align-items-center text-muted mb-3">
                             <i class="fas fa-map-marker-alt me-2"></i>
-                            <span>Aula Kampus Utama</span>
+                            <span><?= htmlspecialchars($event['lokasi']) ?></span>
                         </div>
                         <p class="card-text text-muted mb-4">
-                            Pelajari strategi membangun bisnis dari nol bersama para praktisi sukses.
+                            <?= htmlspecialchars($event['deskripsi']) ?>
                         </p>
                         <a href="#" class="btn btn-primary-custom w-100">Daftar Sekarang</a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Event Card 2 -->
-            <div class="col-md-4">
-                <div class="event-card card border-0 animate-fadeIn delay-200">
-                    <span class="event-category category-workshop">Workshop</span>
-                    <img src="https://images.unsplash.com/photo-1499750317857-1f4135064a6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-                         alt="Workshop Coding" class="card-img-top" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h3 class="card-title fw-bold mb-3">Workshop Web Development</h3>
-                        <div class="d-flex align-items-center text-muted mb-2">
-                            <i class="far fa-calendar-alt me-2"></i>
-                            <span>20 Oktober 2023, 13:00 - 16:00</span>
-                        </div>
-                        <div class="d-flex align-items-center text-muted mb-3">
-                            <i class="fas fa-map-marker-alt me-2"></i>
-                            <span>Lab Komputer Gedung B</span>
-                        </div>
-                        <p class="card-text text-muted mb-4">
-                            Pelajari dasar-dasar pengembangan web modern dengan HTML, CSS, dan JavaScript.
-                        </p>
-                        <a href="#" class="btn btn-primary-custom w-100">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Event Card 3 -->
-            <div class="col-md-4">
-                <div class="event-card card border-0 animate-fadeIn delay-300">
-                    <span class="event-category category-kompetisi">Kompetisi</span>
-                    <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
-                         alt="Hackathon" class="card-img-top" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h3 class="card-title fw-bold mb-3">Hackathon Kampus 2023</h3>
-                        <div class="d-flex align-items-center text-muted mb-2">
-                            <i class="far fa-calendar-alt me-2"></i>
-                            <span>5 November 2023, 08:00 - 20:00</span>
-                        </div>
-                        <div class="d-flex align-items-center text-muted mb-3">
-                            <i class="fas fa-map-marker-alt me-2"></i>
-                            <span>Gedung Inovasi</span>
-                        </div>
-                        <p class="card-text text-muted mb-4">
-                            Kompetisi pengembangan aplikasi selama 12 jam dengan hadiah total Rp 10 juta.
-                        </p>
-                        <a href="#" class="btn btn-primary-custom w-100">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         
         <div class="text-center mt-5">
@@ -132,7 +101,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                    <img src="https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg?_gl=1*j9r726*_ga*MTk2OTY0NTA1Ni4xNzUwNzY0MDk3*_ga_8JE65Q40S6*czE3NTA3NjQwOTYkbzEkZzEkdDE3NTA3NjQzMTUkajUzJGwwJGgw" 
                          alt="Team" class="img-fluid">
                 </div>
             </div>
