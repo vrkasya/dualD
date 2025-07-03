@@ -101,7 +101,7 @@ if (file_exists($file)) {
             </div>
             <div class="col-lg-6">
                 <div class="rounded-lg overflow-hidden shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                    <img src="https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg?_gl=1*j9r726*_ga*MTk2OTY0NTA1Ni4xNzUwNzY0MDk3*_ga_8JE65Q40S6*czE3NTA3NjQwOTYkbzEkZzEkdDE3NTA3NjQzMTUkajUzJGwwJGgw" 
                          alt="Team" class="img-fluid">
                 </div>
             </div>

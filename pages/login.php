@@ -34,6 +34,9 @@ include '../includes/navbar.php';
                     <button type="submit" class="btn btn-primary-custom w-100 py-2 mb-3">
                         Masuk
                     </button>
+                    <div class="text-center mb-3">
+                        <a href="forgot_password.php" class="text-decoration-none">Lupa Password?</a>
+                    </div>
                     <div class="text-center text-muted">
                         Belum punya akun? <a href="register.php" class="text-decoration-none text-primary-custom">Daftar disini</a>
                     </div>

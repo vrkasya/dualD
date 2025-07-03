@@ -55,55 +55,22 @@ if (file_exists($file)) {
         
         <div class="row g-4">
             <?php foreach ($events as $event): ?>
-            <div class="col-lg-6">
-                <div class="event-card card border-0 shadow-sm h-100">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="<?= $event['image'] ?>" class="img-fluid rounded-start h-100" alt="<?= $event['title'] ?>" style="object-fit: cover;">
+            <div class="col-md-4">
+                <div class="event-card card border-0 animate-fadeIn delay-100" onclick="window.location.href='<?= url('/pages/event_detail.php?id=' . urlencode($event['id'])) ?>'">
+                    <span class="event-category category-<?= htmlspecialchars($event['kategori']) ?>"><?= ucfirst(htmlspecialchars($event['kategori'])) ?></span>
+                    <img src="<?= htmlspecialchars($event['gambar_url']) ?>" alt="<?= htmlspecialchars($event['judul']) ?>" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold mb-3"><?= htmlspecialchars($event['judul']) ?></h3>
+                        <div class="d-flex align-items-center text-muted mb-2">
+                            <i class="far fa-calendar-alt me-2"></i>
+                            <span><?= htmlspecialchars($event['tanggal']) ?>, <?= htmlspecialchars($event['waktu']) ?></span>
                         </div>
-                        <div class="col-md-7">
-                            <div class="card-body d-flex flex-column h-100">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <span class="badge rounded-pill 
-                                        <?= $event['category'] == 'seminar' ? 'bg-primary' : '' ?>
-                                        <?= $event['category'] == 'workshop' ? 'bg-success' : '' ?>
-                                        <?= $event['category'] == 'kompetisi' ? 'bg-warning text-dark' : '' ?>
-                                        <?= $event['category'] == 'hiburan' ? 'bg-danger' : '' ?>
-                                        <?= $event['category'] == 'pelatihan' ? 'bg-info' : '' ?>">
-                                        <?= ucfirst($event['category']) ?>
-                                    </span>
-                                    <span class="text-muted">
-                                        <i class="fas fa-users me-1"></i> <?= $event['participants'] ?> peserta
-                                    </span>
-                                </div>
-                                
-                                <h3 class="card-title fw-bold mb-3"><?= $event['title'] ?></h3>
-                                
-                                <div class="d-flex align-items-center text-muted mb-2">
-                                    <i class="far fa-calendar-alt me-2"></i>
-                                    <span><?= $event['date'] ?></span>
-                                </div>
-                                <div class="d-flex align-items-center text-muted mb-2">
-                                    <i class="far fa-clock me-2"></i>
-                                    <span><?= $event['time'] ?></span>
-                                </div>
-                                <div class="d-flex align-items-center text-muted mb-3">
-                                    <i class="fas fa-map-marker-alt me-2"></i>
-                                    <span><?= $event['location'] ?></span>
-                                </div>
-                                
-                                <p class="card-text text-muted mb-4 flex-grow-1"><?= $event['description'] ?></p>
-                                
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <a href="#" class="btn btn-primary-custom">
-                                        <i class="fas fa-info-circle me-2"></i> Detail
-                                    </a>
-                                    <a href="#" class="btn btn-outline-primary">
-                                        <i class="fas fa-user-plus me-2"></i> Daftar
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="d-flex align-items-center text-muted mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            <span><?= htmlspecialchars($event['lokasi']) ?></span>
                         </div>
+                        <p class="card-text text-muted mb-4"><?= htmlspecialchars($event['deskripsi']) ?></p>
+                        <a href="#" class="btn btn-primary-custom w-100">Daftar Sekarang</a>
                     </div>
                 </div>
             </div>

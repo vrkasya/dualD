@@ -33,8 +33,10 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="d-flex">
                 <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                     <a href="<?php echo url('pages/profile.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Profile</a>
-                    <a href="<?php echo url('pages/event_create.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Buat Event</a>
-                    <a href="<?php echo url('pages/dashboard.php'); ?>" class="btn btn-primary-custom fw-medium me-2">Dashboard</a>
+                    <?php if ($_SESSION['user_role'] === 'admin' || $_SESSION['user_role'] === 'pengurus'): ?>
+                        <a href="<?php echo url('pages/event_create.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Buat Event</a>
+                        <a href="<?php echo url('pages/dashboard.php'); ?>" class="btn btn-primary-custom fw-medium me-2">Dashboard</a>
+                    <?php endif; ?>
                     <a href="<?php echo url('actions/logout.php'); ?>" class="btn btn-danger fw-medium">Logout</a>
                 <?php else: ?>
                     <a href="<?php echo url('pages/login.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Masuk</a>
@@ -44,3 +46,4 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </div>
 </nav>
+</create_file>
