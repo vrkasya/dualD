@@ -1,0 +1,3 @@
+{"event_id":"68665f4b715b3","user_email":"diniartiivanovna2416@gmail.com","registered_at":"2025-07-03 22:25:41"}
+{"event_id":"6866e128e99a7","user_email":"diniartiivanovna2416@gmail.com","registered_at":"2025-07-03 22:26:34"}
+{"event_id":"68672caeea03c","user_email":"diniartiivanovna2416@gmail.com","registered_at":"2025-07-04 01:35:09"}

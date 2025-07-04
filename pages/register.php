@@ -9,7 +9,7 @@ include '../includes/navbar.php';
         <div class="col-md-6">
             <div class="form-container">
                 <h2 class="text-center mb-4 fw-bold">Buat Akun Baru</h2>
-                
+                <p class="text-center text-muted mb-4">Silakan isi formulir di bawah ini untuk membuat akun baru dan bergabung dengan komunitas kami.</p>
                 <?php if (isset($_SESSION['register_error'])): ?>
                     <div class="alert alert-danger mb-4">
                         <?php echo $_SESSION['register_error']; unset($_SESSION['register_error']); ?>

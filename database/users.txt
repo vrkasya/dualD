@@ -1,2 +1,3 @@
 {"nama":"Dicky Ferdiawan","email":"dicky2000018433@webmail.uad.ac.id","password":"$2y$12$O1\/D10l\/shoDi3HRAo9OQuDpLMvgR8qz\/0o1y3.o8XoZyECVQijSi","role":"admin","registered_at":"2025-06-23 13:51:30"}
-{"nama":"Diniarti Ivanovna","email":"diniartiivanovna2416@gmail.com","password":"$2y$12$iPl5tdJHPXngEm9fI215Z.N5IBQuCx21d8tdn7oXWJBEJ\/nUUKLjG","role":"user","registered_at":"2025-07-03 05:38:58"}
+{"nama":"Diniarti Ivanovna","email":"diniartiivanovna2416@gmail.com","password":"$2y$12$Eoudf46UyA4grxzViVQWeOne9jxsRtL05zIqpIkPa4Q33yKFOcmpa","role":"peserta","registered_at":"2025-07-03 05:38:58"}
+{"nama":"HMTIF UAD","email":"hmtif@webmail.uad.ac.id","password":"$2y$12$rKsKqJnIGIJMss5hbaR7PetMEv94h5uIydqsOQOJp9\/CgG1DtVIi.","role":"pengurus","registered_at":"2025-07-03 12:42:08"}

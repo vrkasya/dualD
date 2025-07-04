@@ -15,7 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $judul = $_POST['judul'];
     $deskripsi = $_POST['deskripsi'];
     $tanggal = $_POST['tanggal'];
-    $waktu = $_POST['waktu'];
+    $waktu_mulai = $_POST['waktu_mulai'];
+    $waktu_selesai = $_POST['waktu_selesai'];
+    $waktu = $waktu_mulai . ' - ' . $waktu_selesai;
     $lokasi = $_POST['lokasi'];
     $kategori = $_POST['kategori'];
     $gambar_url = $_POST['gambar_url'];

@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nama' => $nama,
         'email' => $email,
         'password' => password_hash($password, PASSWORD_DEFAULT), // Hash password for security
-        'role' => 'user', // Default role user
+        'role' => 'peserta', // Default role user
         'registered_at' => date('Y-m-d H:i:s')
     ];
     
