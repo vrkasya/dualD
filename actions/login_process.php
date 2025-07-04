@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user_role'] = $user_found['role'] ?? 'user';
 
         if ($_SESSION['user_role'] === 'admin') {
-            header('Location: ../admin/index.php');
+            header('Location: ../index.php');
         } else {
             header('Location: ../index.php');
         }

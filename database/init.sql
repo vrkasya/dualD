@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Table structure for events
 CREATE TABLE IF NOT EXISTS events (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY, 
     title VARCHAR(255) NOT NULL,
     description TEXT,
     event_date DATE NOT NULL,

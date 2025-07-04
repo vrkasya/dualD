@@ -37,7 +37,17 @@ if ($event && file_exists($users_file)) {
 }
 
 // Use participants count from event data
-$participants_count = $event['participants'] ?? 0;
+$participants_count = 0;
+$registrations_file = '../database/registrations.txt';
+if (file_exists($registrations_file)) {
+    $regs = file($registrations_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($regs as $reg_line) {
+        $reg = json_decode($reg_line, true);
+        if ($reg && $reg['event_id'] === $event['id']) {
+            $participants_count++;
+        }
+    }
+}
 
 if (!$event) {
     echo "<div class='container py-5'><div class='alert alert-danger'>Event tidak ditemukan.</div></div>";
@@ -177,11 +187,38 @@ if (!$event) {
                             <p class="text-muted"><?= htmlspecialchars($event['lokasi']) ?></p>
                         </div>
 
-                        <div class="d-grid mb-3">
+                        <div class="d-grid mb-3 text-center">
+                            <?php
+                            $isRegistered = false;
+                            if (isset($_SESSION['logged_in'])) {
+                                $registrations_file = '../database/registrations.txt';
+                                $user_email = $_SESSION['user_email'] ?? '';
+                                if (file_exists($registrations_file)) {
+                                    $regs = file($registrations_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                                    foreach ($regs as $reg_line) {
+                                        $reg = json_decode($reg_line, true);
+                                        if ($reg && $reg['event_id'] === $event['id'] && $reg['user_email'] === $user_email) {
+                                            $isRegistered = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            ?>
+
                             <?php if (isset($_SESSION['logged_in'])): ?>
-                                <a href="event_register.php?event_id=<?= htmlspecialchars($event['id']) ?>" class="btn btn-primary-custom btn-lg py-3">
-                                    <i class="fas fa-user-plus me-2"></i> Daftar Event
-                                </a>
+                                <?php if ($isRegistered): ?>
+                                    <button class="btn btn-success btn-lg py-3" disabled>
+                                        <i class="fas fa-check me-2"></i> Terdaftar
+                                    </button>
+                                <?php else: ?>
+                                    <form action="../actions/event_register.php" method="POST">
+                                        <input type="hidden" name="event_id" value="<?= htmlspecialchars($event['id']) ?>">
+                                        <button type="submit" class="btn btn-primary-custom btn-lg py-3">
+                                            <i class="fas fa-user-plus me-2"></i> Daftar Event
+                                        </button>
+                                    </form>
+                                <?php endif; ?>
                             <?php else: ?>
                                 <button class="btn btn-primary-custom btn-lg py-3" data-bs-toggle="modal" data-bs-target="#loginModal">
                                     <i class="fas fa-user-plus me-2"></i> Daftar Event

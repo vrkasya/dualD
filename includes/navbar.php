@@ -35,8 +35,8 @@ if (session_status() === PHP_SESSION_NONE) {
                     <a href="<?php echo url('pages/profile.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Profile</a>
                     <?php if ($_SESSION['user_role'] === 'admin' || $_SESSION['user_role'] === 'pengurus'): ?>
                         <a href="<?php echo url('pages/event_create.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Buat Event</a>
-                        <a href="<?php echo url('pages/dashboard.php'); ?>" class="btn btn-primary-custom fw-medium me-2">Dashboard</a>
                     <?php endif; ?>
+                    <a href="<?php echo url('pages/dashboard.php'); ?>" class="btn btn-primary-custom fw-medium me-2">Dashboard</a>
                     <a href="<?php echo url('actions/logout.php'); ?>" class="btn btn-danger fw-medium">Logout</a>
                 <?php else: ?>
                     <a href="<?php echo url('pages/login.php'); ?>" class="btn btn-light text-primary-custom fw-medium me-2">Masuk</a>
